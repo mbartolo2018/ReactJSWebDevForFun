@@ -21,19 +21,29 @@ fs.readFile('contact.html', function(error, data){
         res.write('Error: File Not Found')
     }
     else{
-        res.write(data) //data holds html file
+        res.write(data) //will write html file upon request
+    }
+    
+})
+fs.readFile('aboutme.html', function(error, data){
+    if(error){ //validate errors
+        res.writeHead(404) //browser is unable to find file
+        res.write('Error: File Not Found')
+    }
+    else{
+        res.write(data) //will write html file upon request
     }
     
 })
 
 })
-
+//listening to port 3000 and checking for errors
 server.listen(port, function(error){
     if(error){
         console.log('hello is there a problem?', error)
     }
     else{
 
-    console.log('my ears are wide open on this port' + port)
+    console.log('my ears are wide open on this port' + port) 
     }
 })
